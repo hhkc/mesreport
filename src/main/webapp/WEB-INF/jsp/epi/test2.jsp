@@ -28,7 +28,10 @@
     <link href="<%=request.getContextPath()%>/bootstrap/assets/css/lib/themify-icons.css" rel="stylesheet">
 </head>
 <body>
-
+	<%
+		String a = "";
+		a.toUpperCase()
+	%>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">

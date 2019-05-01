@@ -37,7 +37,7 @@
 			<label class="col-sm-1 control-label"
 				style="text-align: right; margin-top: 5px">盒号：</label>
 			<div class="col-sm-2">
-				<input type="text" class="form-control" name="Name" id="search_sub" />
+				<input type="text" class="form-control" name="Name" autofocus="autofocus" id="search_sub" />
 			</div>
 			<label class="col-sm-1 control-label"
 				style="text-align: right; margin-top: 5px">批号：</label>
@@ -58,6 +58,7 @@
                             }});">导出excel</a>
 			</div>
 		</div>
+		
 	</div>
 <table id="mytab" class="table table-hover table-condensed">
 </table>
@@ -66,6 +67,9 @@
 //查询按钮事件
 
 $("#mytab").bootstrapTable('destroy');
+$(document).ready(function () { 
+	$('#search_sub').focus();
+});
 $('#mytab').bootstrapTable({
 	method : 'get',
 	url : "epireport/oddpiece",//请求路径
@@ -137,8 +141,14 @@ $('#search_btn').click(function() {
 	$('#mytab').bootstrapTable('refresh', {
 		url : '<%=request.getContextPath()%>/epireport/oddpiece'				
 	});
-	
+	//clear();
 })
+
+function clear(){
+	document.getElementById("search_sub").value="";
+	document.getElementById("search_sub").focus();
+}
+
 
 
 	
